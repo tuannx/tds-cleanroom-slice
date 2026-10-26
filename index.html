@@ -87,33 +87,6 @@
       pointer-events: none;
     }
 
-    #play {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 20px;
-      color: #cfd6e4;
-      font-size: 13px;
-      letter-spacing: .04em;
-      background: rgba(10, 12, 18, .55);
-      cursor: pointer;
-      transition: opacity .2s ease;
-    }
-
-    #play.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #play small {
-      display: block;
-      margin-top: 8px;
-      color: #6f7a8d;
-      font-size: 11px;
-      letter-spacing: .02em;
-    }
 
     #note {
       width: min(100%, 960px, calc((100vh - 130px) * 4 / 3));
@@ -138,7 +111,6 @@
   <div id="stage">
     <canvas id="glcanvas" tabindex="0"></canvas>
     <div id="veil">loading&hellip;</div>
-    <div id="play">click to play<small>SPACE buy &middot; E upgrade &middot; ENTER wave &middot; R restart</small></div>
   </div>
 
   <div id="note">placeholder art &middot; no original asset &middot; balance is a placeholder</div>
@@ -148,11 +120,6 @@
     (function () {
       const el = document.getElementById("glcanvas");
       const veil = document.getElementById("veil");
-      const play = document.getElementById("play");
-
-      const hidePlay = () => play.classList.add("hidden");
-      el.addEventListener("pointerdown", hidePlay, { once: true });
-      addEventListener("keydown", hidePlay, { once: true });
 
       el.addEventListener("pointerdown", () => el.focus());
       el.focus();
